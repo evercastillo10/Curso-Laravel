@@ -11,8 +11,14 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/','InicioController@index');
 
-Route::get('permiso', 'PermisoController@index');
+
+Route::group(['prefix'=>'admin','namespace' => 'admin'], function(){
+    Route::get('permiso','PermisoController@index')->name('permiso');
+    Route::get('permiso/crear', 'PermisoController@crear')->name('crear.permiso');
+    Route::get('menu','MenuController@index')->name('menu');
+    Route::get('menu/crear', 'MenuController@crear')->name('crear.menu');
+    Route::post('menu', 'MenuController@guardar')->name('guardar.menu');
+
+});

@@ -1,0 +1,4 @@
+Label.requerido::after{
+    content: "*";
+    color: red;
+}
