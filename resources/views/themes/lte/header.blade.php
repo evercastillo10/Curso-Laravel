@@ -101,7 +101,7 @@
           <li class="dropdown user user-menu">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
               <img src="{{asset("assets/$theme/dist/img/user2-160x160.jpg")}}" class="user-image" alt="User Image">
-              <span class="hidden-xs">Alexander Pierce</span>
+            <span class="hidden-xs">hola, {{session()->get('nombre_usuario')?? 'Inicia Sesion' }}</span>
             </a>
             <ul class="dropdown-menu">
               <!-- User image -->
@@ -130,10 +130,10 @@
               <!-- Menu Footer-->
               <li class="user-footer">
                 <div class="pull-left">
-                  <a href="#" class="btn btn-default btn-flat">Profile</a>
+                  <a href="{{route('login')}}" class="btn btn-default btn-flat">Iniciar Sesion</a>
                 </div>
                 <div class="pull-right">
-                  <a href="#" class="btn btn-default btn-flat">Sign out</a>
+                  <a href="{{route('logout')}}" class="btn btn-default btn-flat">Cerrar Sesion</a>
                 </div>
               </li>
             </ul>

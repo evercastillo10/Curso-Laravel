@@ -16,7 +16,8 @@ use App\Http\Controllers\Admin\RolController;
 Route::get('/','InicioController@index')->name('inicio');
 Route::get('login', 'Seguridad\LoginController@index')->name('login');
 Route::post('login', 'Seguridad\LoginController@login')->name('login.post');
-Route::group(['prefix'=>'admin','namespace' => 'admin', 'middleware' =>'auth'], function(){
+Route::get('logout', 'Seguridad\LoginController@logout')->name('logout');
+Route::group(['prefix'=>'admin','namespace' => 'admin', 'middleware' =>['auth','superadmin']], function(){
     Route::get('', 'AdminController@index');
     Route::get('permiso','PermisoController@index')->name('permiso');
     Route::get('permiso/crear', 'PermisoController@crear')->name('crear.permiso');
