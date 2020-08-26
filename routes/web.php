@@ -11,14 +11,31 @@
 |
 */
 
-Route::get('/','InicioController@index');
+use App\Http\Controllers\Admin\RolController;
 
-
-Route::group(['prefix'=>'admin','namespace' => 'admin'], function(){
+Route::get('/','InicioController@index')->name('inicio');
+Route::get('login', 'Seguridad\LoginController@index')->name('login');
+Route::post('login', 'Seguridad\LoginController@login')->name('login.post');
+Route::group(['prefix'=>'admin','namespace' => 'admin', 'middleware' =>'auth'], function(){
+    Route::get('', 'AdminController@index');
     Route::get('permiso','PermisoController@index')->name('permiso');
     Route::get('permiso/crear', 'PermisoController@crear')->name('crear.permiso');
+
+            /*RUTAS DEL MENU*/
     Route::get('menu','MenuController@index')->name('menu');
     Route::get('menu/crear', 'MenuController@crear')->name('crear.menu');
     Route::post('menu', 'MenuController@guardar')->name('guardar.menu');
+    Route::post('menu/guardar-orden','MenuController@guardarOrden')->name('guardar.orden');
 
+            /*RUTAS ROL*/
+    Route::get('rol', 'RolController@index')->name('rol');
+    Route::get('rol/crear', 'RolController@crear')->name('rol.crear');
+    Route::post('rol', 'RolController@guardar')->name('rol.guardar');
+    Route::get('rol/{id}/editar', 'RolController@editar')->name('rol.editar');
+    Route::put('rol/{id}', 'RolController@actualizar')->name('rol.actualizar');
+    Route::delete('rol/{id}', 'RolController@eliminar')->name('rol.eliminar');
+
+            /*RUTAS ROL MENU */
+    Route::get('menu-rol', 'MenuRolController@index')->name('rol.menu');
+    Route::post('menu-rol', 'MenuRolController@guardar')->name('rol.menu.guardar');
 });

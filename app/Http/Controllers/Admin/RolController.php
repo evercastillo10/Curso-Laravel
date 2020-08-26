@@ -4,10 +4,10 @@ namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Models\Admin\Menu;
-use App\Http\Requests\ValidacionMenu;
+use App\Http\Requests\ValidacionRol;
+use App\Models\Admin\Rol;
 
-class MenuController extends Controller
+class RolController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,8 +16,8 @@ class MenuController extends Controller
      */
     public function index()
     {
-        $menus = Menu::getMenu();
-        return view('admin.menu.index', compact('menus'));
+        $datas = Rol::orderBy('id')->get();
+        return view ('admin.rol.index', compact('datas'));
     }
 
     /**
@@ -27,8 +27,7 @@ class MenuController extends Controller
      */
     public function crear()
     {
-        return view('admin.menu.crear');
-
+        return view('admin.rol.crear');
     }
 
     /**
@@ -37,12 +36,10 @@ class MenuController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function guardar(ValidacionMenu $request)
+    public function guardar(ValidacionRol $request)
     {
-
-        Menu::create($request->all());
-        return redirect('admin/menu/crear')->with('mensaje','Menú creado con exito');
-
+        Rol::create($request->all());
+        return redirect('admin/rol')->with('mensaje', 'Rol Creado Con Exito');
     }
 
     /**
@@ -51,7 +48,7 @@ class MenuController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function mostrar($id)
+    public function show($id)
     {
         //
     }
@@ -64,7 +61,8 @@ class MenuController extends Controller
      */
     public function editar($id)
     {
-        //
+        $data = Rol::findOrfail($id);
+        return view('admin.rol.editar', compact('data'));
     }
 
     /**
@@ -74,9 +72,10 @@ class MenuController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function actualizar(Request $request, $id)
+    public function actualizar(ValidacionRol $request, $id)
     {
-        //
+        Rol::findOrfail($id)->update($request->all());
+        return redirect('admin/rol')->with('mensaje', 'Rol Actualizado Con Exito');
     }
 
     /**
@@ -85,18 +84,16 @@ class MenuController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function eliminar($id)
+    public function eliminar(Request $request, $id)
     {
-        //
-    }
-    public function guardarOrden(Request $request){
         if ($request->ajax()){
-            $menu = new Menu;
-            $menu -> guardarOrden($request->menu);
-            return response()->json(['mensaje' => 'ok']);
-        } else {
+            if(Rol::destroy($id)){
+                return response()->json(['mensaje' => 'ok']);
+            } else {
+                return response()->json(['mensaje' => 'ng']);
+            }
+        } else{
             abort(404);
         }
     }
-
 }

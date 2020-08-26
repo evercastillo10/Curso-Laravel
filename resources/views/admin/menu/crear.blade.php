@@ -3,7 +3,7 @@
     Sistemas Menus
 @endsection
 @section("scripts")
-<script src="{{asset("assets/pages/scripts/admin/crear.js")}}" type="text/javascript"></script>
+<script src="{{asset("assets/pages/scripts/admin/menu/crear.js")}}" type="text/javascript"></script>
 @endsection
 
 @section('contenido')
@@ -15,7 +15,7 @@
             <div class="box-header with-border">
               <h3 class="box-title">Crear Menu</h3>
             </div>
-            <form class="form-horizontal" action="{{route('guardar.menu')}}" id="form-general" method="POST">
+            <form class="form-horizontal" action="{{route('guardar.menu')}}" id="form-general" method="POST" autocomplete="off">
                 @csrf
                 <div class="box-body">
                     @include('admin.menu.form')
