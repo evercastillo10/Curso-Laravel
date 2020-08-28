@@ -24,7 +24,7 @@
                         <tr>
                             <td>{{$permiso -> id}}</td>
                             <td>{{$permiso -> nombre}}</td>
-                            <td>{{$p ermiso -> slug}}</td>
+                            <td>{{$permiso -> slug}}</td>
                             <td></td>
                         </tr>
                         @endforeach

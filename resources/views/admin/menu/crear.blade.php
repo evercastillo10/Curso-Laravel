@@ -15,7 +15,7 @@
             <div class="box-header with-border">
               <h3 class="box-title">Crear Menu</h3>
               <div class="box-tools pull-right">
-                <a href="{{route('menu')}}" class="btn btn-block btn-info btn-sm">
+                <a href="{{route('menu')}}" class="btn btn-block btn-warning btn-sm">
                     <i class="fa fa-fw fa-reply-all"></i>Volver al listado
                 </a>
             </div>

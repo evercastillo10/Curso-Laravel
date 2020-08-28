@@ -18,5 +18,20 @@ $(document).ready(function (){
             }
         });
     });
+
+    $('.eliminar-menu').on('click', function(event){
+        event.preventDefault();
+        const url = $(this).attr('href');
+        swal({
+            title: '¿Estas seguro de eliminar el menú?',
+            text: "¡Esta accion no se puede deshacer!",
+            icon: 'warning',
+            buttons: {cancel: "Cancelar", confirm: "Confirmar"},
+        }).then((value)=>{
+            if(value){
+                window.location.href = url;
+            }
+        });
+    })
     $('#nestable').nestable('expandAll');
 });

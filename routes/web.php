@@ -26,7 +26,10 @@ Route::group(['prefix'=>'admin','namespace' => 'admin', 'middleware' =>['auth','
     Route::get('menu','MenuController@index')->name('menu');
     Route::get('menu/crear', 'MenuController@crear')->name('crear.menu');
     Route::post('menu', 'MenuController@guardar')->name('guardar.menu');
+    Route::get('menu/{id}/editar', 'MenuController@editar')->name('editar.menu');
+    Route::put('menu/{id}', 'MenuController@actualizar')->name('actualizar.menu');
     Route::post('menu/guardar-orden','MenuController@guardarOrden')->name('guardar.orden');
+    Route::get('menu/{id}','MenuController@eliminar')->name('eliminar.menu');
 
             /*RUTAS ROL*/
     Route::get('rol', 'RolController@index')->name('rol');
