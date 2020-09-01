@@ -7,7 +7,7 @@
 <div class="form-group">
     <label for="url" class="col-lg-3 control-label requerido">Url</label>
     <div class="col-lg-8">
-      <input type="text" name="url" id="url" class="form-control" value="{{old('url', $data->url ?? '')}}" required/>
+        <input type="text" name="url" id="url" class="form-control" value="{{old('url', $data->url ?? '')}}" required/>
     </div>
 </div>
 <div class="form-group">

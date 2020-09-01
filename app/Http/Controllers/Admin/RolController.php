@@ -86,6 +86,7 @@ class RolController extends Controller
      */
     public function eliminar(Request $request, $id)
     {
+        
         if ($request->ajax()){
             if(Rol::destroy($id)){
                 return response()->json(['mensaje' => 'ok']);

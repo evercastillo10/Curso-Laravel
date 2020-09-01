@@ -3,8 +3,8 @@ $(document).ready(function(){
         event.preventDefault();
         const form = $(this);
         swal({
-            title:'¿Estas seguro de que deseas eliminar este registro?',
-            text: "Esta acción no se puede deshacer!",
+            title:'¿Estas seguro de que deseas eliminar este Rol?',
+            text: "¡Esta acción no se puede deshacer!",
             icon: 'warning',
             buttons: {
                 cancel: "Cancelar",
@@ -25,9 +25,9 @@ $(document).ready(function(){
             success: function(respuesta){
                 if (respuesta.mensaje == "ok"){
                     form.parents('tr').remove();
-                    Biblioteca.notificaciones('El Registro fue eliminaro correctamente', 'Biblioteca', 'success');
+                    Biblioteca.notificaciones('El Registro fue eliminado correctamente', 'Biblioteca', 'success');
                 } else {
-                    Biblioteca.notificaciones('El registro no pudo ser eliminaro, hay recursos usandolo', 'Biblioteca', 'error');
+                    Biblioteca.notificaciones('El registro no pudo ser eliminado, hay recursos usandolo', 'Biblioteca', 'error');
                 }
 
             },
