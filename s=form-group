@@ -1,0 +1,65 @@
+[33mcommit ae1ecd33fc0393bbd814015abb92ee1e06600192[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m, [m[1;31morigin/master[m[33m)[m
+Author: EverCastillo <euca1000@gmail.com>
+Date:   Tue Sep 1 09:32:01 2020 -0500
+
+    Crear Eliminar editar permisos
+
+[33mcommit 267ea4393a48cc17c74aa722df7b5633962d7662[m
+Author: EverCastillo <euca1000@gmail.com>
+Date:   Fri Aug 28 17:27:37 2020 -0500
+
+    Eliminar menus
+
+[33mcommit a8d901e63cb6c394fc6303fef516750469335377[m
+Author: EverCastillo <euca1000@gmail.com>
+Date:   Wed Aug 26 17:36:20 2020 -0500
+
+    Autenticacion de usuarios
+
+[33mcommit a98f6586616a6e26540adf1da3c85b549aa7b9e4[m
+Author: EverCastillo <euca1000@gmail.com>
+Date:   Wed Aug 26 13:28:30 2020 -0500
+
+    Se agregan botones de navegacion al admin menu
+
+[33mcommit fecf3127488cd9da688af46369d28ea657b09255[m
+Author: EverCastillo <euca1000@gmail.com>
+Date:   Wed Aug 26 13:11:05 2020 -0500
+
+    Login video 20
+
+[33mcommit 96957f8483de5dbffb0fed3c1f460cc316fc0314[m
+Author: EverCastillo <euca1000@gmail.com>
+Date:   Mon Aug 24 10:45:52 2020 -0500
+
+    Validacion Formulario Crear Menu
+
+[33mcommit 69dab9c9b3cb031159d05529c220de6b8e4beb01[m
+Author: EverCastillo <euca1000@gmail.com>
+Date:   Wed Aug 12 13:19:30 2020 -0500
+
+    Se excluyo el template LTE del repositorio
+
+[33mcommit 6d1e3b5f94b80c6737a480cf9fd0ec055f3a0e9c[m
+Author: EverCastillo <euca1000@gmail.com>
+Date:   Wed Aug 12 11:00:11 2020 -0500
+
+    Pruebas de Rutas
+
+[33mcommit 2daca4d4367b95cbd178c2f8e79b0a377e0a5a81[m
+Author: EverCastillo <euca1000@gmail.com>
+Date:   Tue Aug 11 15:55:26 2020 -0500
+
+    Actualizacion de laravel al 5.8.8
+
+[33mcommit e80af0f9558279e944b1f61615083282f69ca65f[m
+Author: EverCastillo <euca1000@gmail.com>
+Date:   Tue Aug 11 15:33:20 2020 -0500
+
+    Se crearon las migraciones del proyecto biblioteca
+
+[33mcommit 4b7737890c9969606401e0e770a2682dfeee94bc[m
+Author: Ever Castillo - CA AUTOMOTIVE DURANGO <ever.castillo@confezioniandrea.com>
+Date:   Tue Aug 11 12:25:49 2020 -0500
+
+    Commit inicial del Proyecto

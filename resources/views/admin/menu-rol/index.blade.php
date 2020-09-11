@@ -60,7 +60,7 @@ Menú - Rol
                                 </tr>
                                 @foreach ($hijo["submenu"] as $key => $hijo2)
                                     <tr>
-                                        <td class="pl-30"><i class="fa fa-arrow-right"></i>{{ $hijo["nombre"] }}</td>
+                                        <td class="pl-30"><i class="fa fa-arrow-right"></i>{{ $hijo2["nombre"] }}</td>
                                         @foreach ($rols as $id => $nombre)
                                             <td class="text-center">
                                                 <input
@@ -74,7 +74,7 @@ Menú - Rol
                                     </tr>
                                     @foreach ($hijo2["submenu"] as $key => $hijo3)
                                         <tr>
-                                            <td class="pl-40"><i class="fa fa-arrow-right"></i>{{ $hijo["nombre"] }}</td>
+                                            <td class="pl-40"><i class="fa fa-arrow-right"></i>{{ $hijo3["nombre"] }}</td>
                                             @foreach ($rols as $id => $nombre)
                                                 <td class="text-center">
                                                     <input
