@@ -1,6 +1,6 @@
 @extends("themes.$theme.layout")
 @section('scripts')
-<script src="{{asset("assets/pages/scripts/admin/permisos/index.js")}}"></script>
+<script src="{{asset("assets/pages/scripts/admin/usuarios/index.js")}}"></script>
 @endsection
 @section('titulo')
     Usuario
@@ -25,6 +25,7 @@
                             <th>Usuario</th>
                             <th>Nombre</th>
                             <th>Email</th>
+                            <th>Roles</th>
                             <th class="width70"></th>
                         </tr>
                     </thead>
@@ -34,7 +35,11 @@
                             <td>{{$usuarios -> usuario}}</td>
                             <td>{{$usuarios -> nombre}}</td>
                             <td>{{$usuarios -> email}}</td>
-                            {{-- <td>Email</td> --}}
+                            <td>
+                                @foreach ($usuarios->roles as $rol)
+                                    {{ $loop->last ? $rol->nombre : $rol->nombre . ', '}}
+                                @endforeach
+                            </td>
                             <td>
                                 <a href="{{route("editar.usuario", ['id'=> $usuarios->id])}}" class="btn-accion-tabla tooltipsC" title="Editar | {{$usuarios->nombre}}">
                                     <i class="fa fa-edit"></i>

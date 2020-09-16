@@ -17,7 +17,7 @@ class UsuarioController extends Controller
      */
     public function index()
     {
-        $usuario = Usuario::orderBy('id')->get();
+        $usuario = Usuario::with('roles:id,nombre')->orderBy('id')->get();
         return view('admin.usuario.index',compact('usuario'));
     }
 
@@ -42,7 +42,7 @@ class UsuarioController extends Controller
     {
 
         $usuario = Usuario::create($request->all());
-        $usuario -> roles()->attach($request->rol_id);
+        $usuario -> roles()->sync($request->rol_id);
         return redirect('admin/usuario')->with('mensaje', 'Usuario creado con exito');
 
 
@@ -81,7 +81,9 @@ class UsuarioController extends Controller
      */
     public function actualizar(ValidacionUsuario $request, $id)
     {
-        Usuario::findOrFail($id)->update(array_filter($request->all()));
+        $usuario = Usuario::findOrFail($id);
+        $usuario -> update(array_filter($request->all()));
+        $usuario->roles()->sync($request->rol_id);
         return redirect('/admin/usuario')->with('mensaje', 'Usuario Actualizado con exito');
     }
 
@@ -91,8 +93,18 @@ class UsuarioController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function eliminar($id)
+    public function eliminar(Request $request, $id)
     {
-        //
+        if ($request -> ajax()) {
+            $usuario = Usuario::findOrFail($id);
+            $usuario -> roles() -> detach();
+            if ($usuario->delete()) {
+                return response()->json(['mensaje' => 'ok']);
+            } else {
+                return response()->json(['mensaje'=> 'nok']);
+            }
+        } else{
+            abort (404);
+        }
     }
 }

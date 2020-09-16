@@ -7,8 +7,8 @@ $(document).ready(function(){
             text: '¡Esta acción no se puede deshacer!',
             icon: 'warning',
             buttons: {
-                confirm: 'Aceptar',
-                cancel: 'Cancelar',
+                cancel: "Cancelar",
+                confirm: "Aceptar"
             },
         }).then((value) => {
             if(value){
