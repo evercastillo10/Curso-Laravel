@@ -17,9 +17,6 @@ class LibroController extends Controller
     public function index()
     {
         can('listar-libros');
-        // Cache::put('prueba','Esto es un dato en cache');
-        // dd(Cache::get('prueba'));
-        // Cache::tags(['permiso'])->put('permiso.1', ['listar-libros', 'crear-libros']);
         $datas = Libro::orderBy('id')->get();
         return view('libro.index',compact('datas'));
     }
@@ -31,7 +28,8 @@ class LibroController extends Controller
      */
     public function crear()
     {
-        //
+        can('crear-libros');
+        return view('libro.crear');
     }
 
     /**
@@ -42,7 +40,8 @@ class LibroController extends Controller
      */
     public function guardar(Request $request)
     {
-        //
+        if($foto = Libro::setCaratula($request->foto_up))
+        $request->request->add(['foto'=>$foto]);
     }
 
     /**
