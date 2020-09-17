@@ -13,11 +13,12 @@
 
 use App\Http\Controllers\Admin\RolController;
 
-Route::get('/','InicioController@index')->name('inicio');
-Route::get('login', 'Seguridad\LoginController@index')->name('login');
-Route::post('login', 'Seguridad\LoginController@login')->name('login.post');
-Route::get('logout', 'Seguridad\LoginController@logout')->name('logout');
-Route::group(['prefix'=>'admin','namespace' => 'admin', 'middleware' =>['auth','superadmin']], function(){
+    Route::get('/','InicioController@index')->name('inicio');
+    Route::get('login', 'Seguridad\LoginController@index')->name('login');
+    Route::post('login', 'Seguridad\LoginController@login')->name('login.post');
+    Route::get('logout', 'Seguridad\LoginController@logout')->name('logout');
+    Route::post('ajax-sesion' ,'AjaxController@setSession')->name('ajax')->middleware('auth');
+    Route::group(['prefix'=>'admin','namespace' => 'admin', 'middleware' =>['auth','superadmin']], function(){
     Route::get('', 'AdminController@index');
             /*RUTAS PERMISOS */
     Route::get('permiso','PermisoController@index')->name('permiso');
